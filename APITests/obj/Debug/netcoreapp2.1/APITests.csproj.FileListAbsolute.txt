@@ -1,0 +1,17 @@
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\APITests.deps.json
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\APITests.runtimeconfig.json
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\APITests.runtimeconfig.dev.json
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\APITests.dll
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\APITests.pdb
+C:\Users\cpadole\source\repos\TestAPI2\APITests\obj\Debug\netcoreapp2.1\APITests.csprojAssemblyReference.cache
+C:\Users\cpadole\source\repos\TestAPI2\APITests\obj\Debug\netcoreapp2.1\APITests.csproj.CoreCompileInputs.cache
+C:\Users\cpadole\source\repos\TestAPI2\APITests\obj\Debug\netcoreapp2.1\APITests.AssemblyInfoInputs.cache
+C:\Users\cpadole\source\repos\TestAPI2\APITests\obj\Debug\netcoreapp2.1\APITests.AssemblyInfo.cs
+C:\Users\cpadole\source\repos\TestAPI2\APITests\obj\Debug\netcoreapp2.1\APITests.dll
+C:\Users\cpadole\source\repos\TestAPI2\APITests\obj\Debug\netcoreapp2.1\APITests.pdb
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\TestAPI2.dll
+C:\Users\cpadole\source\repos\TestAPI2\APITests\bin\Debug\netcoreapp2.1\TestAPI2.pdb
+C:\Users\cpadole\source\repos\TestAPI2\APITests\obj\Debug\netcoreapp2.1\APITests.csproj.CopyComplete

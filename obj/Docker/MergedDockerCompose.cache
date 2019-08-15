@@ -1,0 +1,22 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  testapi2:
+    build:
+      context: C:\Users\cpadole\source\repos\TestAPI2
+      dockerfile: TestAPI2\Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: testapi2
+    ports:
+    - published: 52509
+      target: 80
+    - published: 44396
+      target: 443
+    volumes:
+    - C:\Users\cpadole\AppData\Roaming\ASP.NET\Https:C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https:ro
+    - C:\Users\cpadole\AppData\Roaming\Microsoft\UserSecrets:C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets:ro
+version: '3.4'
