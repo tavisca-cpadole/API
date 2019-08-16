@@ -35,13 +35,7 @@ pipeline {
         		bat 'dotnet publish ${params.solutionName}'
         	}
         }
-        stage('Deploy') {
-        	
-        	steps{
-        		echo 'Deploy project'
-        		bat 'dotnet ${params.dllPath}'
-        	}
-        }
+
         
 
     }
