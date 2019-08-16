@@ -7,13 +7,6 @@ pipeline {
     }
 	
     stages { 
-        stage('Restore') {
-        	
-        	steps{
-        		echo 'Restore Step'
-        		bat 'dotnet restore ${params.solutionName}'
-        	}
-        }
         stage('Build') {
         	
         	steps{
