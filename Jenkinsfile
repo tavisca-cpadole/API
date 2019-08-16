@@ -1,49 +1,50 @@
 pipeline {
     agent any
+	
+	parameters {
+        string(defaultValue: "TestAPI2.sln", description: 'name of solution file', name: 'solutionName')
+		string(defaultValue: "TestAPI2/bin/Release/netcoreapp2.1/TestAPI2.dll", description: 'path of dll file', name: 'dllPath')
+    }
+	
     stages { 
         stage('Restore') {
         	
         	steps{
         		echo 'Restore Step'
-        		bat 'dotnet restore'
+        		bat 'dotnet restore ${params.solutionName}'
         	}
         }
         stage('Build') {
         	
         	steps{
         		echo 'Build step'
-        		bat 'dotnet build TestAPI2.sln -p:Configuration=release -v:q'
+        		bat 'dotnet build ${params.solutionName} -p:Configuration=release -v:q'
         	}
         }
         stage('Test') {
         	
         	steps{
         		echo 'Test step'
-        		bat 'dotnet test'
+        		bat 'dotnet test ${params.solutionName}'
         	}
         }
         stage('Publish') {
         	
         	steps{
         		echo 'Publish step'
-        		bat 'dotnet publish'
+        		bat 'dotnet publish ${params.solutionName}'
         	}
         }
         stage('Deploy') {
         	
         	steps{
         		echo 'Deploy project'
-        		bat 'dotnet TestAPI2/bin/Release/netcoreapp2.1/TestAPI2.dll'
+        		bat 'dotnet ${params.dllPath}'
         	}
         }
         
 
     }
-    post{
-             success{
-                 archiveArtifacts artifacts: '**', fingerprint:true
-                 bat 'dotnet TestAPI2/bin/Release/netcoreapp2.1/TestAPI2.dll'
-             }
-        }
+
 }
 
