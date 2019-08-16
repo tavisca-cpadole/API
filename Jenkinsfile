@@ -4,7 +4,7 @@ pipeline {
 	parameters {
         string(defaultValue: "TestAPI2.sln", description: 'name of solution file', name: 'solutionName')
 		string(defaultValue: "APITests/APITests.csproj", description: 'name of test file', name: 'testName')
-		string(defaultValue: "TestAPI2/bin/Release/netcoreapp2.1/TestAPI2.dll", description: 'path of dll file', name: 'dllPath')
+		string(defaultValue: "api_image", description: 'name of docker image', name: 'docker_image_name')
     }
 	
     stages { 
@@ -34,8 +34,8 @@ pipeline {
         	
         	steps{
         		echo 'Docker step'
-        		bat 'docker build -t api_image -f Dockerfile .'
-				bat 'docker run api_image -p 8083:8083'
+        		bat 'docker build -t %docker_image_name% -f Dockerfile .'
+				bat 'docker run %docker_image_name% -p 40001:40001'
 				
         	}
         }

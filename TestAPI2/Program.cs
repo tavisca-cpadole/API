@@ -19,7 +19,6 @@ namespace TestAPI2
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseUrls(urls:"http://*:6969");
+                .UseStartup<Startup>().UseUrls(urls:"http://*:40001");
     }
 }
