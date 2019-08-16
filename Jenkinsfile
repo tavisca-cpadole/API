@@ -35,7 +35,7 @@ pipeline {
         	steps{
         		echo 'Docker step'
         		bat 'docker build -t %docker_image_name% -f Dockerfile .'
-				bat 'docker run %docker_image_name% -p 40001:40001'
+				bat 'docker run --rm -p 40001:40001 %docker_image_name% '
 				
         	}
         }
