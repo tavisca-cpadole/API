@@ -11,21 +11,21 @@ pipeline {
         	
         	steps{
         		echo 'Build step'
-        		bat 'dotnet build %params.solutionName% -p:Configuration=release -v:q'
+        		bat 'dotnet build %solutionName% -p:Configuration=release -v:q'
         	}
         }
         stage('Test') {
         	
         	steps{
         		echo 'Test step'
-        		bat 'dotnet test %params.solutionName%'
+        		bat 'dotnet test %solutionName%'
         	}
         }
         stage('Publish') {
         	
         	steps{
         		echo 'Publish step'
-        		bat 'dotnet publish %params.solutionName%'
+        		bat 'dotnet publish %solutionName%'
         	}
         }
 
