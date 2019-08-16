@@ -12,3 +12,4 @@ C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Debug\netcoreapp2.1\TestAPI2
 C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Debug\netcoreapp2.1\TestAPI2.RazorTargetAssemblyInfo.cache
 C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Debug\netcoreapp2.1\TestAPI2.dll
 C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Debug\netcoreapp2.1\TestAPI2.pdb
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

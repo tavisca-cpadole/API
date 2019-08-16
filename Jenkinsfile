@@ -26,12 +26,19 @@ pipeline {
         	
         	steps{
         		echo 'Publish step'
-        		bat 'dotnet publish %solutionName%'
+        		bat 'dotnet publish %solutionName% -c RELEASE -o Publish'
         	}
         }
-
-        
-
+		
+		stage('Docker build and run') {
+        	
+        	steps{
+        		echo 'Docker step'
+        		bat 'docker build -t api_image -f Dockerfile .'
+				bat 'docker run api_image -p 8083:8083'
+				
+        	}
+        }
     }
 
 }
