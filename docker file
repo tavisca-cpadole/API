@@ -1,0 +1,4 @@
+create docker file
+
+docker build --tag=<image name> .
+docker run -p <port>:<port> <image name>
