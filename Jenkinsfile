@@ -5,6 +5,10 @@ pipeline {
         string(defaultValue: "TestAPI2.sln", description: 'name of solution file', name: 'solutionName')
 		string(defaultValue: "APITests/APITests.csproj", description: 'name of test file', name: 'testName')
 		string(defaultValue: "api_image", description: 'name of docker image', name: 'docker_image_name')
+		string(defaultValue: "chinmaypadole/chinmay_repo", description: 'repository_name', name: 'repository_name')
+		string(defaultValue: "pchinu1234", description: 'docker hub password', name: 'password')
+		string(defaultValue: "chinmaypadole", description: 'docker hub username', name: 'username')
+		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
     }
 	
     stages { 
@@ -43,17 +47,17 @@ pipeline {
         	
         	steps{
         		echo 'Docker login to dockerhub'
-				bat 'docker login -p pchinu1234 -u chinmaypadole'   		
+				bat 'docker login -p %password% -u %username%'   		
         	}
         }
 		stage('Docker push Image') {
         	
         	steps{
         		echo 'Docker push image to dockerhub'
-				bat 'docker tag %docker_image_name% chinmaypadole/chinmay_repo:part1'
-				bat 'docker push chinmaypadole/chinmay_repo:part1' 
+				bat 'docker tag %docker_image_name% %repository_name%:%tag_name%'
+				bat 'docker push %repository_name%:%tag_name%' 
 				bat 'docker rmi %docker_image_name%:latest'
-				bat 'docker rmi chinmaypadole/chinmay_repo:part1'
+				bat 'docker rmi %repository_name%:%tag_name%'
         	}
         }
 		
@@ -61,7 +65,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker pull image from dockerhub'
-				bat 'docker pull chinmaypadole/chinmay_repo:part1'        		
+				bat 'docker pull %repository_name%:%tag_name%'        		
         	}
         }
 		
@@ -69,7 +73,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker run the image pulled from dockerhub'
-				bat 'docker run --rm -p 40001:40001 chinmaypadole/chinmay_repo:part1 '        		
+				bat 'docker run --rm -p 40001:40001 %repository_name%:%tag_name% '        		
         	}
         }
     }
