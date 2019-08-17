@@ -47,7 +47,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker login to dockerhub'
-				bat 'docker login -p %pass_word% -u %user_name%'   		
+				bat 'docker login -p %pass_word% -u chinmaypadole'   		
         	}
         }
 		stage('Docker push Image') {
