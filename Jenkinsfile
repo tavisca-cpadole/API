@@ -30,13 +30,46 @@ pipeline {
         	}
         }
 		
-		stage('Docker build and run') {
+		stage('Docker build Image') {
         	
         	steps{
-        		echo 'Docker step'
-        		bat 'docker build -t %docker_image_name% -f Dockerfile .'
-				bat 'docker run --rm -p 40001:40001 %docker_image_name% '
-				
+        		echo 'Docker image'
+        		bat 'docker build -t %docker_image_name% -f Dockerfile .'				
+        	}
+        }
+		
+		
+		stage('Docker hub Login') {
+        	
+        	steps{
+        		echo 'Docker login to dockerhub'
+				bat 'docker login -p pchinu1234 -u chinmaypadole'   		
+        	}
+        }
+		stage('Docker push Image') {
+        	
+        	steps{
+        		echo 'Docker push image to dockerhub'
+				bat 'docker tag %docker_image_name% chinmaypadole/chinmay_repo:part1'
+				bat 'docker push chinmaypadole/chinmay_repo:part1' 
+				bat 'docker rmi %docker_image_name%:latest'
+				bat 'docker rmi chinmaypadole/chinmay_repo:part1'
+        	}
+        }
+		
+		stage('Docker pull Image') {
+        	
+        	steps{
+        		echo 'Docker pull image from dockerhub'
+				bat 'docker pull chinmaypadole/chinmay_repo:part1'        		
+        	}
+        }
+		
+		stage('Docker run image') {
+        	
+        	steps{
+        		echo 'Docker run the image pulled from dockerhub'
+				bat 'docker run --rm -p 40001:40001 chinmaypadole/chinmay_repo:part1 '        		
         	}
         }
     }
