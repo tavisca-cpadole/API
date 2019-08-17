@@ -7,7 +7,7 @@ pipeline {
 		string(defaultValue: "api_image", description: 'name of docker image', name: 'docker_image_name')
 		string(defaultValue: "chinmaypadole/chinmay_repo", description: 'repository_name', name: 'repository_name')
 		string(defaultValue: "pchinu1234", description: 'docker hub password', name: 'pass_word')
-		string(defaultValue: "chinmaypadole", description: 'docker hub username', name: 'uname')
+		string(defaultValue: "chinmaypadole", description: 'docker hub username', name: 'user_name')
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
     }
 	
@@ -47,7 +47,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker login to dockerhub'
-				bat 'docker login -p %pass_word% -u %uname%'   		
+				bat 'docker login -p %pass_word% -u chinmaypadole'   		
         	}
         }
 		stage('Docker push Image') {
