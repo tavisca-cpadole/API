@@ -6,8 +6,7 @@ pipeline {
 		string(defaultValue: "APITests/APITests.csproj", description: 'name of test file', name: 'testName')
 		string(defaultValue: "api_image", description: 'name of docker image', name: 'docker_image_name')
 		string(defaultValue: "chinmaypadole/chinmay_repo", description: 'repository_name', name: 'repository_name')
-		string(defaultValue: "pchinu1234", description: 'docker hub password', name: 'pass_word')
-		string(defaultValue: "chinmaypadole", description: 'docker hub username', name: 'user_name')
+
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
     }
 	
@@ -46,8 +45,11 @@ pipeline {
 		stage('Docker hub Login') {
         	
         	steps{
-        		echo 'Docker login to dockerhub'
-				bat 'docker login -p %pass_word% -u chinmaypadole'   		
+				withCredentials([usernamePassword(credentialsId: '695944ad-b76b-4e42-8dab-3bf6996c816e', passwordVariable: 'pass', usernameVariable: 'user')]) {					
+					echo 'Docker login to dockerhub'
+					bat 'docker login -p %pass% -u %user%'   	
+				}	
+        			
         	}
         }
 		stage('Docker push Image') {
@@ -76,6 +78,14 @@ pipeline {
 				bat 'docker run --rm -p 40001:40001 %repository_name%:%tag_name% '        		
         	}
         }
+		stage('SonarQube stage') {
+        	
+        	steps{
+        		echo 'Docker run the image pulled from dockerhub'
+				bat 'docker run --rm -p 40001:40001 %repository_name%:%tag_name% '        		
+        	}
+        }
+		
     }
 
 }
