@@ -45,7 +45,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker run the image pulled from dockerhub'
-				bat 'dotnet build-server shutdown'
+				
 				bat 'dotnet C:/Users/cpadole/Documents/sonarqube/SonarScanner.MSBuild.dll begin /k:"e30c45aee417212a98751051b9244d54f94c9157"'
 				bat 'dotnet build %solutionName%'
 				bat 'dotnet C:/Users/cpadole/Documents/sonarqube/SonarScanner.MSBuild.dll end '
