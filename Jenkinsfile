@@ -15,7 +15,7 @@ pipeline {
         	
         	steps{
         		echo 'Build step'
-        		bat 'dotnet build /nodereuse:false %solutionName% -p:Configuration=release -v:q'
+        		bat 'dotnet build %solutionName% -p:Configuration=release -v:q'
         	}
         }
         stage('Test') {
@@ -46,7 +46,7 @@ pipeline {
         	steps{
         		echo 'Docker run the image pulled from dockerhub'
 				bat 'dotnet C:/Users/cpadole/Documents/sonarqube/SonarScanner.MSBuild.dll begin /d:sonar.login=admin /d:sonar.password=bitnami /k:"e30c45aee417212a98751051b9244d54f94c9157"'
-				bat 'dotnet build /nodereuse:false'
+				bat 'dotnet build'
 				bat 'dotnet C:/Users/cpadole/Documents/sonarqube/SonarScanner.MSBuild.dll end /d:sonar.login=admin /d:sonar.password=bitnami'
         	}
         }
