@@ -17,9 +17,12 @@ pipeline {
         	steps{
         		echo 'Docker run the image pulled from dockerhub'
 				
-				bat 'dotnet sonarscanner begin /d:sonar.login=admin /d:sonar.password=bitnami /k:"e30c45aee417212a98751051b9244d54f94c9157"'
-				bat 'dotnet build %solutionName%'
-				bat 'dotnet sonarscanner begin /d:sonar.login=admin /d:sonar.password=bitnami'
+				script {
+             scannerHome = tool 'sonarscanner';
+        }
+     withSonarQubeEnv('sonar') {
+         bat "${scannerHome}/bin/sonar-scanner.bat" 
+    }
         	}
         }
 	    
