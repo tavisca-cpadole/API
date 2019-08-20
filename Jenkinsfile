@@ -15,7 +15,7 @@ pipeline {
 	stage('SonarQube stage') {
         	
         	steps{
-        		echo 'Docker run the image pulled from dockerhub'
+        		echo 'Code analysis uisng sonarqube'
 				
 				script {
              scannerHome = tool 'sonarscanner';
