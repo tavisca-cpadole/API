@@ -19,7 +19,7 @@ pipeline {
         		echo 'Code analysis uisng sonarqube'
 				
 				script {
-             scannerHome = tool %sonartool%;
+             scannerHome = tool "%sonartool%";
         }
      withSonarQubeEnv('sonar') {
          bat "${scannerHome}%sonarpath%" 
