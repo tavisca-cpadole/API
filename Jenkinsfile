@@ -6,7 +6,7 @@ pipeline {
 		string(defaultValue: "APITests/APITests.csproj", description: 'name of test file', name: 'testName')
 		string(defaultValue: "api_image", description: 'name of docker image', name: 'docker_image_name')
 		string(defaultValue: "chinmaypadole/chinmay_repo", description: 'repository_name', name: 'repository_name')
-		string(defaultValue: "sonarscanner", description: 'sonarscanner tool name', name: 'sonartool')
+		
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
 		string(defaultValue: "/bin/sonar-scanner.bat", description: 'sonar scanner path', name: 'sonarpath')
     }
@@ -19,7 +19,7 @@ pipeline {
         		echo 'Code analysis uisng sonarqube'
 				
 				script {
-             scannerHome = tool "%sonartool%";
+             scannerHome = tool 'sonarscanner';
         }
      withSonarQubeEnv('sonar') {
          bat "${scannerHome}%sonarpath%" 
