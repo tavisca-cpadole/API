@@ -9,6 +9,9 @@ pipeline {
 		string(defaultValue: "chinmay_repo", description: 'repository_name', name: 'repository_name')
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
 		string(defaultValue: "40001", description: 'port number', name: 'port_no')
+		
+		string(defaultValue: "TestAPI2/Publish", description: 'publish path', name: 'publishPath')
+		string(defaultValue: "TestAPI2.dll", description: 'dll name', name: 'dllName')
 
 		
 		
@@ -60,7 +63,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker image'
-        		bat 'docker build --build-arg publish_path=TestAPI2/Publish --build-arg dll_name=TestAPI2.dll -t %docker_image_name% -f Dockerfile .'				
+        		bat 'docker build --build-arg publish_path=%publishPath% --build-arg dll_name=%dllName% -t %docker_image_name% -f Dockerfile .'				
         	}
         }
 		
