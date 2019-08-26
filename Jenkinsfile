@@ -25,21 +25,14 @@ pipeline {
         		echo 'Code analysis uisng sonarqube'
 				
 				script {
-
-					 scannerHome = tool 'sonarscanner';
-				}
-				 withSonarQubeEnv('sonar') {
-					 bat "${scannerHome}/bin/sonar-scanner.bat" 
-				}
-
              scannerHome = tool 'sonarscanner';
         }
      withSonarQubeEnv('sonar') {
          bat "${scannerHome}%sonarpath%" 
     }
-
         	}
         }
+        
 	    
         stage('Build') {
         	
@@ -112,5 +105,6 @@ pipeline {
 		
 		
     }
+	}
 
 
