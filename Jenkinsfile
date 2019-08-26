@@ -63,7 +63,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker image'
-        		bat 'docker build --build-arg publish_path=%publishPath% -e SOLUTION_DLL=%dllName% -t %docker_image_name% -f Dockerfile .'				
+        		bat 'docker build --build-arg publish_path=%publishPath% --env SOLUTION_DLL=%dllName% -t %docker_image_name% -f Dockerfile .'				
         	}
         }
 		
