@@ -10,7 +10,7 @@ pipeline {
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
 		string(defaultValue: "port_no", description: 'port number', name: 'port_no')
 
-		string(defaultValue: "chinmaypadole/chinmay_repo", description: 'repository_name', name: 'repository_name')
+		
 		
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
 		string(defaultValue: "/bin/sonar-scanner.bat", description: 'sonar scanner path', name: 'sonarpath')
