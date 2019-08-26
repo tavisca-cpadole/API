@@ -8,7 +8,7 @@ pipeline {
 		string(defaultValue: "chinmaypadole", description: 'registry_name', name: 'registry_name')
 		string(defaultValue: "chinmay_repo", description: 'repository_name', name: 'repository_name')
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
-		string(defaultValue: "port_no", description: 'port number', name: 'port_no')
+		string(defaultValue: "40001", description: 'port number', name: 'port_no')
 
 		
 		
