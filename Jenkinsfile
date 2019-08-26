@@ -5,10 +5,17 @@ pipeline {
         string(defaultValue: "TestAPI2.sln", description: 'name of solution file', name: 'solutionName')
 		string(defaultValue: "APITests/APITests.csproj", description: 'name of test file', name: 'testName')
 		string(defaultValue: "api_image", description: 'name of docker image', name: 'docker_image_name')
+
 		string(defaultValue: "chinmaypadole", description: 'registry_name', name: 'registry_name')
 		string(defaultValue: "chinmay_repo", description: 'repository_name', name: 'repository_name')
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
 		string(defaultValue: "port_no", description: 'port number', name: 'port_no')
+		
+		
+		
+		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
+		string(defaultValue: "/bin/sonar-scanner.bat", description: 'sonar scanner path', name: 'sonarpath')
+
     }
 	
     stages { 
@@ -16,14 +23,22 @@ pipeline {
 	stage('SonarQube stage') {
         	
         	steps{
-        		echo 'Docker run the image pulled from dockerhub'
+        		echo 'Code analysis uisng sonarqube'
 				
 				script {
+
 					 scannerHome = tool 'sonarscanner';
 				}
 				 withSonarQubeEnv('sonar') {
 					 bat "${scannerHome}/bin/sonar-scanner.bat" 
 				}
+
+             scannerHome = tool 'sonarscanner';
+        }
+     withSonarQubeEnv('sonar') {
+         bat "${scannerHome}%sonarpath%" 
+    }
+
         	}
         }
 	    
