@@ -5,9 +5,10 @@ pipeline {
         string(defaultValue: "TestAPI2.sln", description: 'name of solution file', name: 'solutionName')
 		string(defaultValue: "APITests/APITests.csproj", description: 'name of test file', name: 'testName')
 		string(defaultValue: "api_image", description: 'name of docker image', name: 'docker_image_name')
-		string(defaultValue: "chinmaypadole/chinmay_repo", description: 'repository_name', name: 'repository_name')
-
+		string(defaultValue: "chinmaypadole", description: 'registry_name', name: 'registry_name')
+		string(defaultValue: "chinmay_repo", description: 'repository_name', name: 'repository_name')
 		string(defaultValue: "api_tag", description: 'tag name', name: 'tag_name')
+		string(defaultValue: "port_no", description: 'port number', name: 'port_no')
     }
 	
     stages { 
@@ -18,11 +19,11 @@ pipeline {
         		echo 'Docker run the image pulled from dockerhub'
 				
 				script {
-             scannerHome = tool 'sonarscanner';
-        }
-     withSonarQubeEnv('sonar') {
-         bat "${scannerHome}/bin/sonar-scanner.bat" 
-    }
+					 scannerHome = tool 'sonarscanner';
+				}
+				 withSonarQubeEnv('sonar') {
+					 bat "${scannerHome}/bin/sonar-scanner.bat" 
+				}
         	}
         }
 	    
@@ -52,7 +53,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker image'
-        		bat 'docker build -t %docker_image_name% -f Dockerfile .'				
+        		bat 'docker build --build-arg publish_path=TestAPI2/Publish --build-arg dll_name=TestAPI2.dll -t %docker_image_name% -f Dockerfile .'				
         	}
         }
 		
@@ -73,10 +74,9 @@ pipeline {
         	
         	steps{
         		echo 'Docker push image to dockerhub'
-				bat 'docker tag %docker_image_name% %repository_name%:%tag_name%'
-				bat 'docker push %repository_name%:%tag_name%' 
-				bat 'docker rmi %docker_image_name%:latest'
-				bat 'docker rmi %repository_name%:%tag_name%'
+				bat 'docker tag %docker_image_name% %registry_name%/%repository_name%:%tag_name%'
+				bat 'docker push %registry_name%/%repository_name%:%tag_name%' 
+				bat 'docker rmi %registry_name%/%repository_name%:%tag_name%'
         	}
         }
 		
@@ -84,7 +84,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker pull image from dockerhub'
-				bat 'docker pull %repository_name%:%tag_name%'        		
+				bat 'docker pull %registry_name%/%repository_name%:%tag_name%'        		
         	}
         }
 		
@@ -92,7 +92,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker run the image pulled from dockerhub'
-				bat 'docker run --rm -p 40001:40001 %repository_name%:%tag_name% '        		
+				bat 'docker run --rm -p %port_no%:%port_no% %registry_name%/%repository_name%:%tag_name% '        		
         	}
         }
 		

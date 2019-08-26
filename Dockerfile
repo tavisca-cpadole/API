@@ -1,6 +1,9 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+ARG publish_path
+ARG dll_name
+
+FROM microsoft/dotnet:2.1-aspnetcore-runtime
 WORKDIR app
 
-COPY TestAPI2/Publish .
+COPY $publish_path .
 
-ENTRYPOINT ["dotnet", "TestAPI2.dll"]
+ENTRYPOINT ["dotnet", $dll_name]
