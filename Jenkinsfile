@@ -63,7 +63,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker image'
-        		bat 'docker build --build-arg publish_path=%publishPath% --env SOLUTION_DLL=%dllName% -t %docker_image_name% -f Dockerfile .'				
+        		bat 'docker build --build-arg publish_path=%publishPath% -t %docker_image_name% -f Dockerfile .'				
         	}
         }
 		
@@ -102,7 +102,7 @@ pipeline {
         	
         	steps{
         		echo 'Docker run the image pulled from dockerhub'
-				bat 'docker run --rm -p %port_no%:%port_no% %registry_name%/%repository_name%:%tag_name%'        		
+				bat 'docker run --rm -p %port_no%:%port_no% -e SOLUTION_DLL=%dllName% %registry_name%/%repository_name%:%tag_name%'        		
         	}
         }
 		
