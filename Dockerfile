@@ -6,4 +6,4 @@ WORKDIR app
 
 COPY $publish_path .
 
-ENTRYPOINT ["dotnet", $dll_name]
+ENTRYPOINT ["dotnet", "echo $dll_name"]

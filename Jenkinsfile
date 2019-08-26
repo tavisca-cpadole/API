@@ -11,7 +11,7 @@ pipeline {
 		string(defaultValue: "40001", description: 'port number', name: 'port_no')
 		
 		string(defaultValue: "TestAPI2/Publish", description: 'publish path', name: 'publishPath')
-		string(defaultValue: "'TestAPI2.dll'", description: 'dll name', name: 'dllName')
+		string(defaultValue: "TestAPI2.dll", description: 'dll name', name: 'dllName')
 
 		
 		
