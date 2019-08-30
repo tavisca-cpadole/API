@@ -108,6 +108,12 @@ pipeline {
 		
 		
     }
+	post
+	{
+		success{
+				deleteDir()
+		}
+	}
 	}
 
 
