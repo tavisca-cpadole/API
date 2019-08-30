@@ -1,0 +1,15 @@
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\bin\Release\netcoreapp2.1\TestAPI2.deps.json
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\bin\Release\netcoreapp2.1\TestAPI2.runtimeconfig.json
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\bin\Release\netcoreapp2.1\TestAPI2.runtimeconfig.dev.json
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\bin\Release\netcoreapp2.1\TestAPI2.dll
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\bin\Release\netcoreapp2.1\TestAPI2.pdb
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.csprojAssemblyReference.cache
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.csproj.CoreCompileInputs.cache
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.RazorAssemblyInfo.cache
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.RazorAssemblyInfo.cs
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.AssemblyInfoInputs.cache
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.AssemblyInfo.cs
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.RazorTargetAssemblyInfo.cache
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.dll
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\TestAPI2.pdb
+C:\Users\cpadole\source\repos\TestAPI2\TestAPI2\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs

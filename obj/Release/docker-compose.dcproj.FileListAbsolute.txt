@@ -1,0 +1,5 @@
+C:\Users\cpadole\source\repos\TestAPI2\bin\Release\TestAPI2.dll
+C:\Users\cpadole\source\repos\TestAPI2\bin\Release\TestAPI2.pdb
+C:\Users\cpadole\source\repos\TestAPI2\obj\Release\docker-compose.dcprojAssemblyReference.cache
+C:\Users\cpadole\source\repos\TestAPI2\obj\Release\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\cpadole\source\repos\TestAPI2\obj\Release\docker-compose.dcproj.CopyComplete

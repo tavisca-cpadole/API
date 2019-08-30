@@ -1,0 +1,18 @@
+create docker file
+
+
+-p is used to bind docker's port to machine's port
+docker build --tag=<image name> .
+docker run -p <port>:<port> <image name>
+
+
+
+
+1) jenkinsfile to perform ci cd on docker container using web api, parameterized
+
+
+sonarq install and security testing implemnet with jenkinsfile
+i.e sonarq testcases should run with sjenkinsfile
+
+
+serverless concept
